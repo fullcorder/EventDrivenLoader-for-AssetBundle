@@ -49,7 +49,7 @@ public class EventDrivenBaseLoader : MonoBehaviour
 
     public void Initialize (AssetBundleManagerEvent<bool, AssetBundleManifest> onFinish = null)
     {
-        StartCoroutine (InitializeCroutine (onFinish));
+        GetDriver ().StartCoroutine (InitializeCroutine (onFinish));
     }
 
     protected IEnumerator InitializeCroutine (AssetBundleManagerEvent<bool, AssetBundleManifest> onFinish = null)
@@ -86,7 +86,7 @@ public class EventDrivenBaseLoader : MonoBehaviour
     public void GetAssetAsync<T> (string bundleName, string assetName,
                               AssetBundleManagerEvent<bool, T> callBack) where T : UnityEngine.Object
     {
-        StartCoroutine (GetAssetInternal<T> (bundleName, assetName, callBack));
+        GetDriver().StartCoroutine (GetAssetInternal<T> (bundleName, assetName, callBack));
     }
 
     IEnumerator GetAssetInternal<T> (string bundleName, string assetName,
@@ -101,7 +101,7 @@ public class EventDrivenBaseLoader : MonoBehaviour
             yield break;
         }
 
-        yield return StartCoroutine (operation);
+        yield return GetDriver().StartCoroutine (operation);
 
         T asset = operation.GetAsset<T> ();
 
@@ -116,7 +116,7 @@ public class EventDrivenBaseLoader : MonoBehaviour
     public void GetAssetsAsync<T> (string bundleName, string[] assetNames,
                                AssetBundleManagerEvent<bool, T[]>callBack) where T :UnityEngine.Object
     {
-        StartCoroutine (GetAssetsAsyncInternal (bundleName, assetNames, callBack));
+        GetDriver().StartCoroutine (GetAssetsAsyncInternal (bundleName, assetNames, callBack));
     }
 
     IEnumerator GetAssetsAsyncInternal<T> (string bundleName, string[] assetNames,
@@ -128,7 +128,7 @@ public class EventDrivenBaseLoader : MonoBehaviour
         foreach (var assetName in assetNames) {
             var request = AssetBundleManager.LoadAssetAsync (bundleName, assetName, typeof(T));
             operations.Add (request);
-            yield return StartCoroutine (request);
+            yield return GetDriver().StartCoroutine (request);
         }
 
         var isNullCount = operations.Count (operation => operation.GetAsset<T> () == null);
