@@ -86,8 +86,6 @@ public class EventDrivenBaseLoader : MonoBehaviour
     public void GetAssetAsync<T> (string bundleName, string assetName,
                               AssetBundleManagerEvent<bool, T> callBack) where T : UnityEngine.Object
     {
-//		Debug.Log("EventDrivenBaseLoader#GetAssetAsync bundleName", bundleName, "AssetName", assetName);
-
         StartCoroutine (GetAssetInternal<T> (bundleName, assetName, callBack));
     }
 
@@ -118,8 +116,6 @@ public class EventDrivenBaseLoader : MonoBehaviour
     public void GetAssetsAsync<T> (string bundleName, string[] assetNames,
                                AssetBundleManagerEvent<bool, T[]>callBack) where T :UnityEngine.Object
     {
-//		Debug.Log("EventDrivenBaseLoader#GetAssetsAsync bundleName", bundleName, "AssetName", assetNames);
-
         StartCoroutine (GetAssetsAsyncInternal (bundleName, assetNames, callBack));
     }
 

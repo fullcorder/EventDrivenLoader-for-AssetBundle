@@ -39,8 +39,8 @@ public class TestEventDrivenBaseLoader : EventDrivenBaseLoader
 	{
 		GetAssetAsync<Texture2D> (
 
-			"assets/jewel-s-free101j/image/card/f002.png",
-			"f002",
+			"card.unity3d",
+			"f001",
 			(success, asset) => {
 
 				Debug.Log ("GetAssetAsync");
@@ -62,8 +62,8 @@ public class TestEventDrivenBaseLoader : EventDrivenBaseLoader
 	{
 		GetAssetAsync<Texture2D> (
 
-			"assets/jewel-s-free101j/image/card/f003.png",
-			"f003",
+			"card.unity3d",
+			"f002",
 			(success, asset) => {
 
 				Debug.Log ("GetAssetAsync");

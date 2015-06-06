@@ -409,7 +409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156987347eafb4528b133a64cb37fae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AssetBundleRootUrl: 
+  AssetBundleRootUrl: https://dl.dropboxusercontent.com/u/6805292/EventDrivenBaseLoader/
   testSprite: {fileID: 1370755359}
 --- !u!4 &1479307350
 Transform:
