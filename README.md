@@ -12,7 +12,7 @@
 |JewelSaviorFREE|http://www.jewel-s.jp/|
 
 
-Load AssetBunlde Like this.
+Usage.
 
 ```csharp
 GetAssetAsync<Texture2D> (
